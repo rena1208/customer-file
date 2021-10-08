@@ -1,0 +1,29 @@
+.main{
+    padding: 100px 80px;
+    text-align: center;
+}
+img.icon_l{
+    width: 250px;
+    height: 150px;
+}
+img.icon_r{
+    width: 250px;
+    height: 150px;
+}
+.app-title{
+    margin: auto; 
+
+}
+.box{
+    padding: 1em 0.5em;
+    margin: 2em 8em;
+    color:#565656;
+    background: #ffeaea;
+    box-shadow: 0px 0px 0px 10px #ffeaea;
+    border: dashed 2px #ffc3c3;
+    border-radius: 8px;
+}
+.login-form{ 
+    margin: 0;
+    padding: 0;
+}
