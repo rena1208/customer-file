@@ -12,8 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 Route::get('/index', function () {
     return view('index');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
+    
+  });

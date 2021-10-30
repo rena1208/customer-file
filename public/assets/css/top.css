@@ -1,5 +1,5 @@
 .main{
-    padding: 100px 80px;
+    padding: 100px 20px;
     text-align: center;
 }
 img.icon_l{
@@ -15,8 +15,8 @@ img.icon_r{
 
 }
 .box{
-    padding: 1em 0.5em;
-    margin: 2em 8em;
+    padding: 1em 1em;
+    margin: 3em 8em;
     color:#565656;
     background: #ffeaea;
     box-shadow: 0px 0px 0px 10px #ffeaea;
@@ -26,4 +26,15 @@ img.icon_r{
 .login-form{ 
     margin: 0;
     padding: 0;
+}
+
+h1{
+    margin-bottom: 0;
+    font-weight: bold;
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0);
+
+  text-shadow: 1.5px 1.5px 0 #83c5ff;
+  -webkit-text-stroke: 1px #888;
+  text-stroke: 1px #888;
 }
