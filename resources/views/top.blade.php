@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href ="{{asset('/assets/css/welcome.css')}}" rel="stylesheet">
-    <title>化粧品顧客台帳</title>
-  </head>
+    <link href ="{{asset('/assets/css/top.css')}}" rel="stylesheet">
+    
   <body>
     <div class = "main">
        <table class = "app-title">
