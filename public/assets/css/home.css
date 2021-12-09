@@ -1,13 +1,47 @@
-.menu{
-    float: left;
+table{
+    margin: auto;
 }
 
 .box-pink{
-    padding: 1em 0.5em;
-    margin: 2em 8em;
+    padding: 2em 2em;
+    margin: 10em 4em;
     color:#565656;
     background: #ffeaea;
     box-shadow: 0px 0px 0px 10px #ffeaea;
     border: dashed 2px #ffc3c3;
     border-radius: 8px;
+    display: inline-block;
+    width: 20em;
+    height: 20em;
+    text-align: center;
+    justify-content: center;
+}
+
+.box-orenge{
+    padding: 2em 2em;
+    margin: 10em 4em;
+    color:#565656;
+    background: #ffedcb;
+    box-shadow: 0px 0px 0px 10px #ffedcb;
+    border: dashed 2px #ffc3c3;
+    border-radius: 8px;
+    display: inline-block;
+    width: 20em;
+    height: 20em;
+    text-align: center;
+    justify-content: center;
+}
+
+.icon{
+    border-radius: 50%;
+    height: 10em;
+    width: 10em;
+    
+}
+
+.menu{
+    display: block;
+    text-align: center;
+    padding-top: 1.5em;
+    font-size: 20px;
 }
