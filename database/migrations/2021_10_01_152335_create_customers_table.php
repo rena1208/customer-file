@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration
             $table->integer('gender_id');
             $table->string('name');
             $table->string('name_ruby');
-            $table->datetime('birthday');
+            $table->datetime('birthday')->nullable();
             $table->string('phone_number');
             $table->text('address');
             $table->integer('repeater');

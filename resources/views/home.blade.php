@@ -20,25 +20,33 @@
         </div>
     </div>
 </div>-->
-  <link href ="{{asset('/assets/css/home.css')}}" rel="stylesheet">
+  <link href="{{asset('/assets/css/home.css')}}" rel="stylesheet">
 
 　　<!--　フラッシュメッセージ  -->
 　　@if (session('flash_message'))
-     <div class = "message" >
+     <div class="message" >
        {{ session('flash_message') }}
      </div>
     @endif
     <!--  メニュー一覧 -->
-    <div class = "menu">
-      <div class = "box-pink">
-        <a href = "">お名前検索</a>
-      </div>
-      <div class = "box-pink">
-        <a href = "">お客様追加</a>
-      </div>
-      <div class = "box-pink">
-        <a href = "">購入履歴</a>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <td><div class="box-pink">
+          <img src="{{ asset('img/CC32BF43-C1AB-4FEF-A320-6D1E9058BCB5_4_5005_c.jpeg') }}"
+          class="icon">
+          <a class="menu" href="#">お名前検索</a>
+        </div></td>
+        <td><div class="box-orenge">
+          <img src="{{ asset('img/00E74E47-4F70-4742-BEB4-E2A9FAB30C3D_4_5005_c.jpeg') }}"
+           class="icon">
+          <a class="menu" href="/post/customer">お客様追加</a>
+        </div></td>
+        <td><div class="box-pink">
+          <img src="{{ asset('img/00F19716-B411-466A-95B3-243A8B24EDAE_4_5005_c.jpeg') }}"
+           class="icon">
+          <a class="menu" href="">購入履歴</a>
+        </div></td>
+      </tr>
+</table>
 
 @endsection

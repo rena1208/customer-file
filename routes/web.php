@@ -26,4 +26,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
     
-  });
+// お客様登録画面表示用
+    Route::get('/post/customer', 'PostCustomerController@create')->name('post.create');
+
+// 登録ボタンを押した時
+    Route::post('/post/customer', 'PostCustomerController@store')->name('post.store');;  
+  
+}); 
+
+
+
