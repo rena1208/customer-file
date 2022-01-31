@@ -16,7 +16,7 @@ class PostCustomerController extends Controller
     // dd($genders);
     return view ('post/customer',$genders);
 
-    $cutomers = Customer::all();
+    $customers = Customer::all();
   } 
 
   
@@ -48,4 +48,10 @@ public function store(PostRequest $request)
         
        }  
     }
+
+public function index(){
+  $customers = Customer::all();
+  $customers = Customer::orderBy('name_ruby','asc')->paginate(10);
+        return view('index',['customers'=>$customers ]);
+  }
 }

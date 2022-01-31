@@ -44,7 +44,7 @@
         <td><div class="box-pink">
           <img src="{{ asset('img/00F19716-B411-466A-95B3-243A8B24EDAE_4_5005_c.jpeg') }}"
            class="icon">
-          <a class="menu" href="">購入履歴</a>
+          <a class="menu" href="/index">購入履歴</a>
         </div></td>
       </tr>
 </table>
