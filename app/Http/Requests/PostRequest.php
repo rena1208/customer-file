@@ -26,7 +26,7 @@ class PostRequest extends FormRequest
         return [
             //バリデーション
         'name' => 'required|max:50',
-        'name_ruby' => 'required|regex:/^[あ-ん゛゜ぁ-ぉゃ-ょー]+$/u',
+        'name_ruby' => 'required|regex:/^[あ-ん゛゜ぁ-ぉゃ-ょー 　]+$/u',
 
         'phone_number' => 'required|max:16|regex:/^(0{1}\d{1,4}-{0,1}\d{1,4}-{0,1}\d{4})$/',
         'address' => 'required',      
