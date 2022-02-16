@@ -107,23 +107,18 @@
                     @foreach ($customers as $customer)
                     <tr class="box-item">
                         <td>
-                            <div class="table-text">{{$customer->name}}<div>
+                            <div class="table-text">{{$customer->name}}</div>
                         </td>
                         <td>
                             <div class="table-text">{{$customer->name_ruby}}</div>
                         </td>
+                        <td><a href="{{ route('customer.profile', ['id'=>$customer->id]) }}" class="btn">詳細</a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-        </div>
-
-        <div class="row">
-            <div class="pagi-link">
-            {{$customers->links()}}
-            </div>
-        </div>      
-    @endif
+    </div>
+        @endif
 
 
 <!-- さくいんクリック開閉 -->
@@ -133,9 +128,9 @@
     }
 </script>
 <!-- 絞り込み -->
-    <script>
+<script>
         customers=@json($customers); 
-        const post=document.getElementById("customer.name_ryby");
+        const post=document.getElementById("customer.name_ruby");
         const dakuonHandakuon = [
     ['が', 'か'],
     ['ぎ', 'き'],
@@ -167,7 +162,7 @@
         function select_c(column) {
             const result=customers.filter(value => {
                 // if (value.name_ruby > 0) {
-                    console.log(dakuonHandakuon.length);
+                    console.log(value);
                     for (let i = 0; i < dakuonHandakuon.length; i++) {
                         let convertName_ruby = dakuonHandakuon[i];
                         var text = value.name_ruby.replace(new RegExp(convertName_ruby[0], 'g'), function() {
@@ -190,18 +185,21 @@
         //人数分追加する
         const appendElement = 
         `
-        <tr>
-            <td><div>${result[i].name}</div></td>
-        </tr>
-        <tr>
-            <td><div>${result[i].name_ruby}</div></td>
-        </tr>
+        <table class="box">
+            <tr class="box-item">
+                <td><div class="table-text">${result[i].name}</div></td>
+            
+                <td><div class="table-text">${result[i].name_ruby}</div></td>
 
+                <td><a href="" class="btn">詳細</a></td>
+            </tr>
+        </table>
         `
         console.log(result[i]);
         //追加する
          return ele.insertAdjacentHTML("beforeend", appendElement);
+            }
         }
-        }
-        </script>
+
+    </script>
  @endsection

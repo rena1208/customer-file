@@ -31,10 +31,10 @@ img.icon_r{
 h1{
     margin-bottom: 0;
     font-weight: bold;
-  font-size: 60px;
-  color: rgba(0, 0, 0, 0);
+    font-size: 60px;
+    color: rgba(0, 0, 0, 0);
 
-  text-shadow: 1.5px 1.5px 0 #83c5ff;
-  -webkit-text-stroke: 1px #888;
-  text-stroke: 1px #888;
+    text-shadow: 1.5px 1.5px 0 #83c5ff;
+    -webkit-text-stroke: 1px #888;
+    text-stroke: 1px #888;
 }

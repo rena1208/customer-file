@@ -35,5 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 // お客様一覧の表示
     route::get('/index', 'PostCustomerController@index');
 
-
+// お客様プロフィール画面
+    route::get('/profile/{id}', 'PostCustomerController@show')->name('customer.profile');
 });
