@@ -1,0 +1,51 @@
+body{
+    text-align: center;
+}
+.box{
+    padding: 2em 2em;
+    margin: 1rem auto;
+    color:#565656;
+    background: #fdf2f2;
+    box-shadow: 0px 0px 0px 10px #fdf2f2;
+    border: dashed 2px #ffc3c3;
+    border-radius: 8px;
+    /* display: flex; */
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+    height: 25rem;
+}
+
+h1{
+    font-weight: 800;
+    font-family: "ヒラギノ丸ゴ Pro";
+    color:  #565656;
+    letter-spacing: 10px;
+    margin: 2.5rem auto;
+    display: block;
+}
+
+dl {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #ffc3c3, #ffc3c3 8px, transparent 8px, transparent 15px);
+	background-size: 15px 2px;
+	background-repeat: repeat-x;
+	background-position: left bottom;
+    margin: 10px 3.5rem;
+  }
+  
+  dt {
+    padding-top: 15px;
+    width: 150px;
+  }
+  
+  dd {
+    padding-top: 15px;
+    width: calc(100% - 150px);
+    text-align: left;
+  }
+
+
+
+ 
