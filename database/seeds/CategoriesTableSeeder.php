@@ -15,64 +15,68 @@ class CategoriesTableSeeder extends Seeder
         $data = [
             [
                 "id" => 1,
-                "categories" => 'メイク落とし',
+                "category" => 'メイク落とし',
             ],
             [
                 "id" => 2,
-                "categories" => '洗顔料',
+                "category" => '洗顔料',
             ],
             [
                 "id" => 3,
-                "categories" => '化粧水',
+                "category" => '化粧水',
             ],
             [
                 "id" => 4,
-                "categories" => '乳液・クリーム',
+                "category" => '乳液・クリーム',
+            ],
+            [
+                "id" => 16,
+                "category" => 'オールインワン、その他',
             ],
             [
                 "id" => 5,
-                "categories" => 'UVケア',
+                "category" => 'UVケア',
             ],
             [
                 "id" => 6,
-                "categories" => 'スペシャルケア 美白',
+                "category" => 'スペシャルケア 美白',
 
             ],
             [
                 "id" => 13,
-                "categories" => 'スペシャルケア　保湿',
+                "category" => 'スペシャルケア　保湿',
             ],
             [
                 "id" => 14,
-                "categories" => 'スペシャルケア　ハリ',
+                "category" => 'スペシャルケア　ハリ',
             ],
             [
                 "id" => 15,
-                "categories" => 'スペシャルケア　毛穴',
+                "category" => 'スペシャルケア　毛穴',
             ],
             [
                 "id" => 7,
-                "categories" => 'ファンデーション',
+                "category" => 'ファンデーション',
             ],
             [
                 "id" => 8,
-                "categories" => '下地、フェイスパウダー、その他',
+                "category" => '下地、フェイスパウダー、その他',
             ],
             [
                 "id" => 9,
-                "categories" => 'アイメイク',
+                "category" => 'アイメイク',
             ],
             [
                 "id" => 10,
-                "categories" => 'アイブロウ（眉ずみ）',
+                "category" => 'アイブロウ（眉ずみ）',
             ],
             [
                 "id" => 11,
-                "categories" => 'リップ',
+                "category" => 'リップ',
             ],
             [
                 "id" => 12,
-                "categories" => 'チーク、その他',
+                "category" => 'チーク、その他',
             ],
         ];
 
