@@ -37,4 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 // お客様プロフィール画面
     route::get('/profile/{id}', 'PostCustomerController@show')->name('customer.profile');
+    
+
+// 商品登録画面表示用
+    Route::get('/post/item/{id}','PostItemController@create')->name('item.create');
+// 接客内容を投稿を押した時
+    Route::post('/post/item/{id}','PostItemController@store')->name('item.store');
 });

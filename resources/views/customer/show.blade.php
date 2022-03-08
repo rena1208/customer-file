@@ -29,6 +29,7 @@
             <dt>お誕生日</dt>
             <dd>{{$customer->birthday}}</dd>
         </dl>
-    </div>                
+    </div> 
+    <a href="{{ route('item.create', ['id'=>$customer->id]) }}" class="btn">接客内容の登録へ</a>
 </body>
 @endsection
