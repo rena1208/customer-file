@@ -51,7 +51,6 @@ class PostCustomerController extends Controller
   }
 
   public function index(){
-    $customers = Customer::all();
     $customers = Customer::orderBy('name_ruby','asc')->get();
           return view('index',['customers'=>$customers ]);
   }

@@ -32,38 +32,25 @@
                 <ul>
                     <li class="menu" onclick="menu(this)">メーカー
                         <ul>
-                            <li>資生堂</li>
-                            <li>カネボウ</li>
-                            <li>コーセー</li>
-                            <li>ソフィーナ</li>
-                            <li>ロート製薬</li>
+                            @foreach ($manufacturers as $manufacturer)
+                                <li id="select_m" onclick="selectManufacturer({{ $manufacturer->id }});select({{ $manufacturer->id }})">{{ $manufacturer->name }}</li>
+                                <!-- ;select({{ $manufacturer->id }}) -->
+                            @endforeach                                                                 
                         </ul>
                     </li>
-                    <li>
+                    <li class="menu" onclick="menu(this)">商品カテゴリー
                         <ul>
-                            <li>メイク落とし</li>
-                            <li>洗顔</li>
-                            <li>化粧水</li>
-                            <li>乳液・クリーム</li>
-                            <li>UVケア</li>
-                            <li>スペシャルケア　美白</li>
-                            <li>スペシャルケア　保湿</li>
-                            <li>スペシャルケア　ハリ</li>
-                            <li>スペシャルケア　毛穴</li>
-                            <li>フェンデーション</li>
-                            <li>下地・フェイスパウダー</li>
-                            <li>アイメイク</li>
-                            <li>アイブロウ</li>
-                            <li>リップ</li>
-                            <li>チーク・その他</li>
-                            <li>オールインワン</li>
+                            @foreach ($categories as $category)
+                                <li id="select_c" onclick="selectCategory({{ $category->id }});select({{ $category->id }})">{{ $category->name }}</li>
+                                <!-- ;select({{ $manufacturer->id }}) -->
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
             </th>
         </thead>
         <!-- テーブル本体 -->
-        <tbody>
+        <tbody id="item">
             @foreach ($items as $item)
                 <tr>
                     <td>
@@ -75,10 +62,82 @@
     </table> 
 
     <script>
+        // クリック開閉式メニュー
         function menu(e) {
             e.classList.toggle("active");
-            console.log(e);
+
         }
+
+        // 商品フィルター
+        const items=@json($items);
+        const ele=document.getElementById("item");
+        let manufacturer_id=0;
+        let category_id=0;
+
+        function selectManufacturer(id){
+            manufacturer_id=id
+        }
+        
+        function selectCategory(id){
+             category_id=id
+            //  console.log(manufacturer_id,category_id);
+        }
+        
+        function select(){
+             const result=items.filter(value=>{  
+                if(value.manufacturer_id === manufacturer_id 
+                        && category_id === 0){
+                    document.getElementById("select_m").innerHTML;
+                    return value;
+                }    
+                else if(manufacturer_id === 0 
+                        && value.category_id === category_id){
+                    document.getElementById("select_c").innerHTML;
+                    return value;
+                }
+                else if(value.manufacturer_id === manufacturer_id
+                    && value.category_id === category_id){
+                    document.getElementById("select_m", "select_c").innerHTML;
+                    return value;
+                }
+            });
+             console.log(result);
+            ele.innerHTML='';//初期化（空にする）
+            for(var i=0; i<result.length; i++){
+                //商品の数分追加する
+                const appendElement_m= 
+                    `
+                        <div>${result[i].name}</div>
+                        
+                    `
+                    
+                //追加する
+                ele.insertAdjacentHTML("beforeend", appendElement_m);
+            } 
+         } 
+        //  function select_c($category_id){
+        //     const result=items.filter(value=>{
+        //         if(value.category_id === $category_id){
+        //             document.getElementById("select_c").innerHTML;
+        //             return value; 
+        //         }
+        //     });
+
+        //     ele.innerHTML='';//初期化（空にする）
+        //     for(var i=0; i<result.length; i++){
+        //         //商品の数分追加する
+        //         const appendElement_c= 
+        //             `
+        //                 <div>${result[i].name}</div>
+                        
+        //             `
+                    
+        //         //追加する
+        //         ele.insertAdjacentHTML("beforeend", appendElement_c);
+        //     } 
+        
+        // }
+
     </script> 
 
 </body>

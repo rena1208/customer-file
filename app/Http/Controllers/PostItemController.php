@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Customer;
 use App\PostItem;
 use App\Item;
+use App\Manufacturer;
+use App\Category;
 
 class PostItemController extends Controller
 {
@@ -19,10 +21,11 @@ class PostItemController extends Controller
     { 
       $customer = Customer::find($id);
       $customerGender = Customer::with('customerGender')->get();
-      $items = Item::all();
       $items = Item::orderBy('name','asc')->get();
-      // dd($items);//dd
-      return view('customer/postItem', compact('customer','items'));
+      $manufacturers = Manufacturer::all();
+      $categories =  Category::all();
+      // dd($categories);//dd
+      return view('customer/postItem', compact('customer','items','manufacturers','categories'));
       
     }
 
