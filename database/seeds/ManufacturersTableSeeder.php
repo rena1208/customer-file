@@ -15,23 +15,23 @@ class ManufacturersTableSeeder extends Seeder
         $data = [
             [
                 "id" => 1,
-                "manufacturer" => '資生堂',
+                "name" => '資生堂',
             ],
             [
                 "id" => 2,
-                "manufacturer" => 'カネボウ',
+                "name" => 'カネボウ',
             ],
             [
                 "id" => 3,
-                "manufacturer" => 'コーセー',
+                "name" => 'コーセー',
             ],
             [
                 "id" => 4,
-                "manufacturer" => 'ソフィーナ',
+                "name" => 'ソフィーナ',
             ],
             [
                 "id" => 5,
-                "manufacturer" => 'ロート',
+                "name" => 'ロート',
             ],
         ];
 
