@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePurchaseHistriesTable extends Migration
+class CreatePurchaseDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePurchaseHistriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_histries', function (Blueprint $table) {
+        Schema::create('purchase_data', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
-            $table->integer('purchased_item_id');
-            $table->datetime('visited_on');
-            $table->text('comment');
-            $table->string('sampl');
+            $table->integer('purchased_item_id')->nullable();
+            $table->datetime('date')->nullable();
+            $table->text('comment')->nullable();
+            $table->string('sample')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePurchaseHistriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchase_histries');
+        Schema::dropIfExists('purchase_data');
     }
 }

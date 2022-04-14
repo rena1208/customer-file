@@ -147,13 +147,14 @@ return [
     */
 
     'attributes' => [
-        'email' => 'メールアドレス',
+      'email' => 'メールアドレス',
       'password' => 'パスワード',
       'name' => '名前',
       'name_ruby' => 'ふりがな',
       'phone_number' => '電話番号',
       'address' => '住所',
       'birthday' => '誕生日',
+      'date' => '日付',
     ],
 
 ];
