@@ -30,8 +30,15 @@ class PostRequest extends FormRequest
 
         'phone_number' => 'required|max:16|regex:/^(0{1}\d{1,4}-{0,1}\d{1,4}-{0,1}\d{4})$/',
         'address' => 'required',      
-        'birthday'=> 'nullable'
-          
+        'birthday'=> 'nullable',
+        'purchased_item_id' => 'nullable',
+        'item_id' => 'nullable',
+        'quantity' => 'nullable',
+        'date'  => 'required',
+        'comment' => 'nullable',
+        'sampl' => 'nullable',
+        'purchased_item_id' => 'nullable',
+        'item_id' => 'nullable',
         ];
     }
 }

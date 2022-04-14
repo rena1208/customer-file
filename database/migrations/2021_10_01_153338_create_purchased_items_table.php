@@ -15,8 +15,8 @@ class CreatePurchasedItemsTable extends Migration
     {
         Schema::create('purchased_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('item_id');
-            $table->integer('quantity');
+            $table->integer('item_id')->nullable();
+            $table->integer('quantity')->nullable();
             $table->timestamps();
         });
     }

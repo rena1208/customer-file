@@ -7,11 +7,14 @@
         @csrf
         {{ session('status') }}
             <div>
+                <input type="hidden" name="customer_id" value="{{ $customer->id }}" />
                 <label for="visited_on"> <p>日付</p><input name="visited_on" type="datetime"/></label>
             </div>
             <div>
-                <label for="item_id"> <p>購入商品</p><input name="item_id" type="integer"/></label>
-                <label for="quantity"> <p>個数</p><input name="quantity" type="integer"/></label>
+                <p>購入商品</p><div id=post_item></dev>
+                <label for="item_id"><input id=post_item_id name="item_id" type="integer"/></label>
+                <p>個数</p>
+                <!-- <label for="quantity"> <p>個数</p><input name="quantity" type="integer"/></label> -->
             </div>
             <div>
                 <p>コメント</p>
@@ -34,7 +37,6 @@
                         <ul>
                             @foreach ($manufacturers as $manufacturer)
                                 <li id="select_m" onclick="selectManufacturer({{ $manufacturer->id }});select({{ $manufacturer->id }})">{{ $manufacturer->name }}</li>
-                                <!-- ;select({{ $manufacturer->id }}) -->
                             @endforeach                                                                 
                         </ul>
                     </li>
@@ -42,7 +44,6 @@
                         <ul>
                             @foreach ($categories as $category)
                                 <li id="select_c" onclick="selectCategory({{ $category->id }});select({{ $category->id }})">{{ $category->name }}</li>
-                                <!-- ;select({{ $manufacturer->id }}) -->
                             @endforeach
                         </ul>
                     </li>
@@ -54,12 +55,23 @@
             @foreach ($items as $item)
                 <tr>
                     <td>
-                        <div>{{$item->name}}</div>
+                        <div id=select_i onclick="selectItem( {{$item}} )">{{$item->name}}</div>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table> 
+
+    <!-- バリデーションエラー表示  -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <script>
         // クリック開閉式メニュー
@@ -101,43 +113,52 @@
                     return value;
                 }
             });
-             console.log(result);
+            //  console.log(result);
             ele.innerHTML='';//初期化（空にする）
             for(var i=0; i<result.length; i++){
                 //商品の数分追加する
                 const appendElement_m= 
                     `
-                        <div>${result[i].name}</div>
+                        <div　id="select_i" onclick="selectItem_f('${result[i].id}','${result[i].name}')">${result[i].name}</div>
                         
                     `
-                    
+                    // <div　id="select_i" onclick="selectItem('${result[i].id}','${result[i].name}')">${result[i].name}</div>  
                 //追加する
                 ele.insertAdjacentHTML("beforeend", appendElement_m);
             } 
          } 
-        //  function select_c($category_id){
-        //     const result=items.filter(value=>{
-        //         if(value.category_id === $category_id){
-        //             document.getElementById("select_c").innerHTML;
-        //             return value; 
-        //         }
-        //     });
-
-        //     ele.innerHTML='';//初期化（空にする）
-        //     for(var i=0; i<result.length; i++){
-        //         //商品の数分追加する
-        //         const appendElement_c= 
-        //             `
-        //                 <div>${result[i].name}</div>
-                        
-        //             `
-                    
-        //         //追加する
-        //         ele.insertAdjacentHTML("beforeend", appendElement_c);
-        //     } 
         
-        // }
-
+        function selectItem(item) {
+            console.log(item);
+            const purchaseItem=document.getElementById("post_item");
+            const appendElementItemName= 
+                    `
+                        <div>${item.name}</div>
+                        <input name="quantity" type="integer"/>個
+                        <input type="hidden" name="item_id" value="${item.id}"/>
+                    `
+                    // <input type="hidden" name="item_id" value="${id}"/>
+            console.log(manufacturer_id,category_id);
+            if(manufacturer_id === 0 && category_id === 0){
+            purchaseItem.insertAdjacentHTML("beforebegin", appendElementItemName);
+            }
+            // else{
+            // purchaseItem.insertAdjacentHTML("beforebegin", appendElementItemName_f);
+            // }
+            // console.log(item.id);
+        }
+        function selectItem_f(id,name) {
+            const purchaseItem=document.getElementById("post_item");
+            const appendElementItemName_f= 
+                    `
+                        <div>${name}</div>
+                        <input name="quantity" type="integer"/>個
+                        <input type="hidden" name="id" value="${id}"/>
+                    `
+            // if(manufacturer_id !== 0 && category_id !== 0){
+                purchaseItem.insertAdjacentHTML("beforebegin", appendElementItemName_f);
+            // }
+        }
     </script> 
 
 </body>
