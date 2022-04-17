@@ -17,7 +17,7 @@ class CreatePurchaseDataTable extends Migration
             $table->increments('id');
             $table->integer('customer_id');
             $table->integer('purchased_item_id')->nullable();
-            $table->datetime('date')->nullable();
+            $table->datetime('date');
             $table->text('comment')->nullable();
             $table->string('sample')->nullable();
             $table->timestamps();
