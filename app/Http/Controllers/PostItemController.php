@@ -39,31 +39,23 @@ class PostItemController extends Controller
 
     public function store(PostItemRequest $request)
     {   
-        // $validator = Validator::make($request->all(), [
-        //     'purchased_item_id' => 'nullable',
-        //     'item_id' => 'nullable',
-        //     'quantity' => 'nullable',
-        //     'date'  => 'required',
-        //     'comment' => 'nullable',
-        //     'sampl' => 'nullable',
-
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return redirect()->back()
-        //     ->withInput()
-        //     ->withErrors($validator);
-        // }
-
-        $purchasedItems = new PurchasedItems;
-        // dd($request->item_id);
-        $purchasedItems->item_id = $request->item_id;
-        $purchasedItems->quantity = $request->quantity;
-        $purchasedItems->save();
+        if($request->item_id >=1){
+            $purchasedItems = new PurchasedItems;
+            // dd($request->item_id);
+            $purchasedItems->item_id = $request->item_id;
+            $purchasedItems->quantity = $request->quantity;
+            $purchasedItems->save();
+        }else{
+            $purchasedItems = new PurchasedItems;
+            $purchasedItems->item_id = $request->id;
+            $purchasedItems->quantity = $request->quantity;
+            $purchasedItems->save();
+        }
         $purchaseData = new PurchaseData;
         $purchaseData->customer_id = $request->customer_id;
         $purchaseData->purchased_item_id = $purchasedItems->id;
         $purchaseData->date = $request->date;
+        $purchaseData->comment = $request->comment;
         $purchaseData->sample = $request->sample;
         $purchaseData->save();
         // dd($purchaseData->customer_id);
