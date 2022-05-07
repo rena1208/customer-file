@@ -5,3 +5,17 @@
 .active ul {
     display: block;
   }
+
+.flex {
+  display: flex;
+}
+
+.box {
+  padding: 1em 1em;
+  margin: 3em 8em;
+  color:#565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+}
