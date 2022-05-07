@@ -16,7 +16,6 @@ class CreatePurchaseDataTable extends Migration
         Schema::create('purchase_data', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id');
-            $table->integer('purchased_item_id')->nullable();
             $table->datetime('date');
             $table->text('comment')->nullable();
             $table->string('sample')->nullable();
