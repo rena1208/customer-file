@@ -24,26 +24,26 @@
             </table> 
 
             <!-- テーブル索引 -->
-            <table>
-                <tr>
+            <!-- <table>
+                <tr> -->
                     <ul>
                         <li class="menu" onclick="menu(this)">メーカー
                             <ul>
                                 @foreach ($manufacturers as $manufacturer)
-                                    <li id="select_m" onclick="selectManufacturer({{ $manufacturer->id }});select({{ $manufacturer->id }})">{{ $manufacturer->name }}</li>
+                                    <li class="menu_m" id="select_m" onclick="selectManufacturer({{ $manufacturer->id }});select({{ $manufacturer->id }})">{{ $manufacturer->name }}</li>
                                 @endforeach                                                                 
                             </ul>
                         </li>
                         <li class="menu" onclick="menu(this)">商品カテゴリー
                             <ul>
                                 @foreach ($categories as $category)
-                                    <li id="select_c" onclick="selectCategory({{ $category->id }});select({{ $category->id }})">{{ $category->name }}</li>
+                                    <li class="menu_c" id="select_c" onclick="selectCategory({{ $category->id }});select({{ $category->id }})">{{ $category->name }}</li>
                                 @endforeach
                             </ul>
                         </li>
                     </ul>
-                </tr>
-            </table>
+                <!-- </tr>
+            </table> -->
         <form action="{{ route('item.store', ['id'=>$customer->id]) }}" method="POST">
             @csrf
             {{ session('status') }}
