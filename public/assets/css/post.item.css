@@ -12,10 +12,50 @@
 
 .box {
   padding: 1em 1em;
-  margin: 3em 8em;
+  margin: 3em 3em;
   color:#565656;
   background: #ffeaea;
   box-shadow: 0px 0px 0px 10px #ffeaea;
   border: dashed 2px #ffc3c3;
   border-radius: 8px;
+  width: 45em;
+}
+
+.menu{
+  width: 11rem;
+  background-color:#ffedcb ;
+  list-style: none;
+  font-family: "ヒラギノ丸ゴ Pro";
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  display: block;
+  margin-top: 0.8rem;/*ボタン隙間*/
+  margin-right: auto;
+  margin-left: 0.1rem;
+  padding:0.4rem 0.3rem;
+  cursor: pointer;/*カーソルを変える*/
+  /* vertical-align: top;上に揃える */
+  color: #51565c;
+  border-radius: 0.5rem;/* 角を丸く */
+  border: 3px solid #fcc89e;
+  text-align: center;
+}
+
+.menu_m{
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "ヒラギノ丸ゴ Pro";
+  color: #51565c;
+  text-align: center;
+  list-style: disc;
+}
+
+.menu_c{
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "ヒラギノ丸ゴ Pro";
+  color: #51565c;
+  text-align: center;
+  list-style: disc;
 }
