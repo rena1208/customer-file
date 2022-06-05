@@ -43,4 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/post/item/{id}','PostItemController@create')->name('item.create');
 // 接客内容を投稿を押した時
     Route::post('/post/item/{id}','PostItemController@store')->name('item.store');
+
+// 商品購入履歴の表示
+    route::get('/post/item/{id}/index', 'PostItemController@purchasedindex');
 });

@@ -7,7 +7,11 @@
     <div class="box">
 
         <dl>
-            <dt>{{$customer->repeater}}　様</dt>
+            @if ($customer->repeater===0)
+                <dt class="n-r">N-新客様</dt>
+            @else
+                <dt class="n-r">R-リピート客様</dt>
+            @endif
         </dl>
         <dl>
             <dt>お名前</dt> 

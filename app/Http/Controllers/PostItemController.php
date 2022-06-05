@@ -11,7 +11,7 @@ use App\Item;
 use App\Manufacturer;
 use App\Category;
 use App\PurchaseData;
-use App\PurchasedItems;
+use App\PurchasedItem;
 
 use Validator;
 
@@ -72,6 +72,13 @@ class PostItemController extends Controller
         // }
         
         return redirect()->route('item.create',['id'=>$purchaseData->customer_id]);
+    }
+
+    public function purchasedindex() {
+        $purchaseData =PurchaseData::with('purchaseditems')->with('purchaseditems.item')->orderBy('date','desc')->get();
+        // $purchaseData = PurchaseData::with('purchaseditems')->orderBy('date','desc')->get();
+        // $purchasedItems = PurchasedItem::with('item')->get();
+        return view('customer/purchaseIndex',compact('purchaseData'));
     }
 
 }
