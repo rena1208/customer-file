@@ -8,6 +8,7 @@
 
 .flex {
   display: flex;
+  padding-left: 8px;
 }
 
 .box {
@@ -32,7 +33,6 @@
   display: block;
   margin-top: 0.8rem;/*ボタン隙間*/
   margin-right: auto;
-  margin-left: 0.1rem;
   padding:0.4rem 0.3rem;
   cursor: pointer;/*カーソルを変える*/
   /* vertical-align: top;上に揃える */
@@ -47,7 +47,7 @@
   font-weight: 400;
   font-family: "ヒラギノ丸ゴ Pro";
   color: #51565c;
-  text-align: center;
+  text-align: left;
   list-style: disc;
 }
 
@@ -56,6 +56,54 @@
   font-weight: 400;
   font-family: "ヒラギノ丸ゴ Pro";
   color: #51565c;
-  text-align: center;
+  text-align: left;
   list-style: disc;
+}
+
+.box-item{
+  padding: 10px;
+  font-size: 15px;
+  text-align: left;
+  vertical-align: top;
+  width: 10rem;
+}
+
+.box-content{
+  padding: 10px 10px 10px 15px;
+}
+
+.comment-txt{
+  padding: 10px;
+  margin: 15px;
+  width: 30rem;
+  height: 8rem;
+}
+
+.sample-txt{
+  padding: 10px;
+  margin: 15px;
+  width: 20rem;
+  height: 3.5rem;
+}
+
+.add-button{
+  text-align: center;
+}
+
+.add-item{
+  padding: 5px 10px 0 10px;
+}
+
+dl{
+  display:inline-block;
+  padding-top: 5px;
+}
+
+dt{
+  display:inline-block;
+  padding-top: 5px;
+}
+
+.select-i{
+  padding-top: 6px;
 }
