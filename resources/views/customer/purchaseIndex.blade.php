@@ -1,38 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
+<link href ="{{asset('/assets/css/purchaseIndex.css')}}" rel="stylesheet">
 
-    @if (count($purchaseData)>0)
-        <table class="box">
+    @if (count($purchaseDatas)>0)
+        <table>
             <!-- テーブルヘッダー -->
             <thead>
-                <th>購入履歴</th>
+                <th>カウンセリング履歴</th>
                 <th>&nbsp;</th>
             </thead>
 
             <!-- テーブル本体 -->
             <tbody id="index">
-                @foreach ($purchaseData as $purchaseData)
-                    <tr>
-                        <td>
-                            <div>{{$purchaseData->date->format('Y年m月d日')}}</div>
-                        </td>
-                        <td>
-                            <div>{{$purchaseData->comment}}</div>
-                        </td>
-                        <td>
-                            <div>{{$purchaseData->sample}}</div>
-                        </td>
+                    <tr class="table-title">
+                        <th class="th-date">年 月 日</th>
+                        <th>購 入 商 品</th>
+                        <th>金 額</th>
+                        <th>個 数</th>
+                        <th>カウンセリングメモ</th>
+                        <th class="th-date">サンプル</th>
                     </tr>
-                    @foreach($purchaseData->purchasedItems as $purchasedItem)
-                        <td>
-                            <div>{{optional($purchasedItem->item)->name}}</div>
-                            <div>{{optional($purchasedItem->item)->price}}</div>
-                            <div>{{$purchasedItem->quantity}}</div>
-                        </td>
-                    @endforeach
+                @foreach ($purchaseDatas as $purchaseData)
+                    <tr>
+                        <td class="td-date">{{$purchaseData->date->format('Y年m月d日')}}</td>
+                            <td>
+                                @foreach($purchaseData->purchasedItems as $purchasedItem)
+                                    <p>{{optional($purchasedItem->item)->name}}</p>
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach($purchaseData->purchasedItems as $purchasedItem)
+                                <p>{{optional($purchasedItem->item)->price}}</p>
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach($purchaseData->purchasedItems as $purchasedItem)
+                                <p>{{$purchasedItem->quantity}}</p>
+                                @endforeach
+                            </td>
+
+                        <td>{{$purchaseData->comment}}</td>
+                        <td class="td-date">{{$purchaseData->sample}}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
+            <div　class="pagilink">
+                {{$purchaseDatas->links()}}
+            </div>
     @endif
 @endsection

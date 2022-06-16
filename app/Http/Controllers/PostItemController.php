@@ -49,10 +49,6 @@ class PostItemController extends Controller
         $purchaseData->comment = $request->comment;
         $purchaseData->sample = $request->sample;
         $purchaseData->save();
-        // $purchasedItems = new PurchasedItems;
-        // $purchasedItems->purchase_data_id=$purchaseData->id;
-        // $purchasedItems = new PurchasedItems;
-        // $purchasedItems->purchase_data_id=$purchaseData->id;
         foreach($ids as $index => $id){
             // dd($id);
             $purchasedItems = new PurchasedItems;
@@ -63,22 +59,13 @@ class PostItemController extends Controller
             $purchasedItems->item_id = $id;
             $purchasedItems->save();
         }
-        // foreach($quantities as $quantity){
-        //     $purchasedItems = new PurchasedItems;
-        //     $purchasedItems->purchase_data_id=$purchaseData->id;
-        //     $purchasedItems->quantities = $quantity;
-        //     $purchasedItems->save();
-        // // dd($quantity);
-        // }
-        
         return redirect()->route('item.create',['id'=>$purchaseData->customer_id]);
     }
 
     public function purchasedindex() {
-        $purchaseData =PurchaseData::with('purchaseditems')->with('purchaseditems.item')->orderBy('date','desc')->get();
-        // $purchaseData = PurchaseData::with('purchaseditems')->orderBy('date','desc')->get();
-        // $purchasedItems = PurchasedItem::with('item')->get();
-        return view('customer/purchaseIndex',compact('purchaseData'));
+        $purchaseDatas =PurchaseData::with('purchaseditems')->with('purchaseditems.item')->orderBy('date','desc')->paginate(6);
+        // dd($purchaseData);
+        return view('customer/purchaseIndex',compact('purchaseDatas'));
     }
 
 }
