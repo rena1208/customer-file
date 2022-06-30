@@ -46,4 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // 商品購入履歴の表示
     route::get('/post/item/{id}/index', 'PostItemController@purchasedindex');
+
+// 使用状況シートの表示
+    route::get('/post/item/{id}/calender','PostItemController@itemCalender');
 });

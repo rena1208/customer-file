@@ -23,7 +23,9 @@
                     </tr>
                 @foreach ($purchaseDatas as $purchaseData)
                     <tr>
-                        <td class="td-date">{{$purchaseData->date->format('Y年m月d日')}}</td>
+                    <td class="td-date">{{ \Carbon\Carbon::parse($purchaseData->date)->format("Y年m月d日") }}</td>
+                        <!-- <td class="td-date">{{$purchaseData->date->format('Y年m月d日')}}</td> -->
+                        <!-- \Carbon\Carbon::parse('now')->format('Y-m-d')  -->
                             <td>
                                 @foreach($purchaseData->purchasedItems as $purchasedItem)
                                     <p>{{optional($purchasedItem->item)->name}}</p>

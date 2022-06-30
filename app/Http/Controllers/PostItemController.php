@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostItemRequest;
+use Carbon\Carbon;
 
 use App\Customer;
 use App\PostItem;
@@ -63,9 +65,35 @@ class PostItemController extends Controller
     }
 
     public function purchasedindex() {
-        $purchaseDatas =PurchaseData::with('purchaseditems')->with('purchaseditems.item')->orderBy('date','desc')->paginate(6);
-        // dd($purchaseData);
+        $purchaseDatas =PurchaseData::with('purchasedItems')->with('purchasedItems.item')->orderBy('date','desc')->paginate(6);
+        // dd($purchaseDatas);
         return view('customer/purchaseIndex',compact('purchaseDatas'));
     }
 
+    //使用状況シートに表示
+    public function itemCalender(){
+        $purchaseDatas = PurchaseData::with('purchasedItems')->with('purchasedItems.item')->get();
+        // dd($purchaseDatas);
+        // $date = Carbon::parse($purchaseDatas->date)->format("Y年m月");
+
+
+        $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as month'))
+          ->take(10)
+          ->get();
+  
+        $items = $items->groupBy('month')->map(function($item) { return $item; });
+        
+  
+        // $items = $items->groupBy('month')->map(function($item) { return $item; });
+        // dd($items);
+        // $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as date')
+        //          )->whereNotNull('date')->take(10)->get();
+        //      dd($items->groupBy('date'));     
+        // $items = $items->groupBy('date')->map(function($item) { return $item; });
+        // dd($items);       
+
+        return view('customer/itemCalender',compact('purchaseDatas','items'));
+        }
+
 }
+
