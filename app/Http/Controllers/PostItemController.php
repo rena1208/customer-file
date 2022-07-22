@@ -47,13 +47,15 @@ class PostItemController extends Controller
         // dd($quantities);
         $purchaseData = new PurchaseData;
         $purchaseData->customer_id = $request->customer_id;
+        // dd($request->date);
         $purchaseData->date = $request->date;
+        
         $purchaseData->comment = $request->comment;
         $purchaseData->sample = $request->sample;
         $purchaseData->save();
         foreach($ids as $index => $id){
             // dd($id);
-            $purchasedItems = new PurchasedItems;
+            $purchasedItems = new PurchasedItem;
             // $quantities[$index];
             $purchasedItems->quantity = $quantities[$index];
             // dd($quantities[$index]);
@@ -74,24 +76,15 @@ class PostItemController extends Controller
     public function itemCalender(){
         $purchaseDatas = PurchaseData::with('purchasedItems')->with('purchasedItems.item')->get();
         // dd($purchaseDatas);
-        // $date = Carbon::parse($purchaseDatas->date)->format("Y年m月");
-
-
-        $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as month'))
+        $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),'date','id')->with('purchasedItems')->with('purchasedItems.item')
           ->take(10)
           ->get();
   
-        $items = $items->groupBy('month')->map(function($item) { return $item; });
-        
-  
-        // $items = $items->groupBy('month')->map(function($item) { return $item; });
+        $items = $items->groupBy('month')->map(function($items) { return $items; });
         // dd($items);
-        // $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as date')
-        //          )->whereNotNull('date')->take(10)->get();
-        //      dd($items->groupBy('date'));     
-        // $items = $items->groupBy('date')->map(function($item) { return $item; });
-        // dd($items);       
-
+        // $purchasedItems = collect([PurchaseData::with('purchasedItems')->with('purchasedItems.item')]);
+        
+        // dd($purchasedItems);
         return view('customer/itemCalender',compact('purchaseDatas','items'));
         }
 
