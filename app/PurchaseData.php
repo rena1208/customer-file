@@ -12,7 +12,7 @@ class PurchaseData extends Model
         return $this->hasMany('App\PurchasedItem');
     }
 
-    protected $dates = [
-        'date',
-    ];
+    // protected $dates = [
+    //     'date',
+    // ];
 }
