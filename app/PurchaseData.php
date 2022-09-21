@@ -15,4 +15,8 @@ class PurchaseData extends Model
     // protected $dates = [
     //     'date',
     // ];
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer','customer_id');
+    }
 }

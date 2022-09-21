@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/post/customer', 'PostCustomerController@store')->name('post.store');
 
 // お客様一覧の表示
-    route::get('/index', 'PostCustomerController@index');
+    route::get('/index', 'PostCustomerController@index')->name('customer.index');
 
 // お客様プロフィール画面
     route::get('/profile/{id}', 'PostCustomerController@show')->name('customer.profile');
@@ -45,8 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/post/item/{id}','PostItemController@store')->name('item.store');
 
 // 商品購入履歴の表示
-    route::get('/post/item/{id}/index', 'PostItemController@purchasedindex');
+    route::get('/post/item/{id}/index', 'PostItemController@purchasedindex')->name('item.index');
 
 // 使用状況シートの表示
-    route::get('/post/item/{id}/calender','PostItemController@itemCalender');
+    route::get('/post/item/{id}/calender/{year}','PostItemController@itemCalender')->name('item.calender');
 });
