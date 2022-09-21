@@ -34,6 +34,9 @@
             <dd>{{$customer->birthday}}</dd>
         </dl>
     </div> 
+    <a href="{{ route('customer.index', ['id'=>$customer->id] )}}" class="btn_back">お客様一覧へ</a>
     <a href="{{ route('item.create', ['id'=>$customer->id]) }}" class="btn">接客内容の登録へ</a>
+    <a href="{{ route('item.index', ['id'=>$customer->id] )}}" class="btn">購入履歴へ</a>
+    <a href="{{ route('item.calender', ['id'=>$customer->id, 'year'=>\Carbon\Carbon::now()->year] )}}" class="btn">使用状況シート</a>
 </body>
 @endsection

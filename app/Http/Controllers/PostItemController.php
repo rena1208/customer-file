@@ -63,29 +63,72 @@ class PostItemController extends Controller
             $purchasedItems->item_id = $id;
             $purchasedItems->save();
         }
+        // dd($purchaseData->customer_id);
+        $repeat=PurchaseData::where('customer_id', $purchaseData->customer_id)->count();
+        // dd($repeat);
+        if ($repeat > 1){
+            $customer=Customer::find($purchaseData->customer_id);
+            // dd($request->customer_id);
+            $customer->repeater = true;
+            $customer->save();
+            }
         return redirect()->route('item.create',['id'=>$purchaseData->customer_id]);
     }
 
-    public function purchasedindex() {
-        $purchaseDatas =PurchaseData::with('purchasedItems')->with('purchasedItems.item')->orderBy('date','desc')->paginate(6);
+    public function purchasedindex($customerId) {
+        $customer = Customer::find($customerId);
+        // dd($customer);
+        $purchaseDatas =PurchaseData::where('customer_id', $customer->id)->with('purchasedItems')->with('purchasedItems.item')->orderBy('date','desc')->paginate(4);
         // dd($purchaseDatas);
-        return view('customer/purchaseIndex',compact('purchaseDatas'));
+        return view('customer/purchaseIndex',compact('purchaseDatas','customer'));
     }
 
     //使用状況シートに表示
-    public function itemCalender(){
-        $purchaseDatas = PurchaseData::with('purchasedItems')->with('purchasedItems.item')->get();
+    public function itemCalender($customerId,$year){
+        $customer = Customer::find($customerId);
+        // dd($customer);
+        
+       
+        $purchaseDatas = PurchaseData::where('customer_id', $customer->id)->with('purchasedItems')->with('purchasedItems.item')->get();
         // dd($purchaseDatas);
-        $items = PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),'date','id')->with('purchasedItems')->with('purchasedItems.item')
-          ->take(10)
+        $itemMonths = PurchaseData::where('customer_id', $customer->id)->select(DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),'date','id')->with('purchasedItems')->with('purchasedItems.item')
           ->get();
   
-        $items = $items->groupBy('month')->map(function($items) { return $items; });
-        // dd($items);
-        // $purchasedItems = collect([PurchaseData::with('purchasedItems')->with('purchasedItems.item')]);
+        $itemMonths = $itemMonths->groupBy('month')->map(function($itemMonths) { return $itemMonths; });
+
         
-        // dd($purchasedItems);
-        return view('customer/itemCalender',compact('purchaseDatas','items'));
+        // dd($itemMonths);
+        // $itemYears =  PurchaseData::select(DB::raw('DATE_FORMAT(date, "%Y") as year'),'date','id')->with('purchasedItems')->with('purchasedItems.item')
+        // ->get();
+        // $itemYears = $itemYears->groupBy('year')->map(function($itemYears) { return $itemYears; });
+        // dd($itemYears);
+
+        // $year = '2021';
+
+        $months = [
+            "$year-01",
+            "$year-02",
+            "$year-03",
+            "$year-04",
+            "$year-05",
+            "$year-06",
+            "$year-07",
+            "$year-08",
+            "$year-09",
+            "$year-10",
+            "$year-11",
+            "$year-12",
+        ];
+        // dd($itemYears);
+        // dd($months);
+        // $thisDate = Carbon::now();
+        // $thisYear = $thisDate->year;
+        // dd($thisDate->year);
+
+        // foreach ($itemYears as $itemYear)
+            // foreach ($itemYear as $year)
+            
+        return view('customer/itemCalender',compact('purchaseDatas','customer','itemMonths','months','year'));
         }
 
 }

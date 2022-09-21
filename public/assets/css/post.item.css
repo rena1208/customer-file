@@ -13,7 +13,7 @@
 
 .box {
   padding: 1em 1em;
-  margin: 3em 3em;
+  margin: 30px 40px;
   color:#565656;
   background: #ffeaea;
   box-shadow: 0px 0px 0px 10px #ffeaea;
@@ -106,4 +106,56 @@ dt{
 
 .select-i{
   padding-top: 6px;
+}
+
+.btn_back{
+  width: 10rem;
+  background-color:#cbe7ff;
+  list-style: none;
+  font-family: "ヒラギノ丸ゴ Pro";
+  font-size: 1rem;
+  font-weight: 700;/*文字の太さ*/
+  line-height: 1.5;
+  display: inline-block;
+  margin-top: 0.5rem;/*ボタン隙間*/
+  margin-right: auto;
+  margin-left: 0.1rem;
+  padding:0.4rem 0.3rem;
+  cursor: pointer;/*カーソルを変える*/
+  vertical-align: top;/*上に揃える*/
+  color: #51565c;
+  border-radius: 0.5rem;/* 角を丸く */
+  border: 3px solid #83c5ff;
+}
+
+.btn{
+  width: 10rem;
+background-color:#ffedcb ;
+list-style: none;
+font-family: "ヒラギノ丸ゴ Pro";
+font-size: 1rem;
+font-weight: 700;/*文字の太さ*/
+line-height: 1.5;
+display: inline-block;
+margin-top: 0.5rem;/*ボタン隙間*/
+margin-right: auto;
+margin-left: 0.1rem;
+padding:0.4rem 0.3rem;
+cursor: pointer;/*カーソルを変える*/
+/* vertical-align: top;上に揃える */
+color: #51565c;
+border-radius: 0.5rem;/* 角を丸く */
+border: 3px solid #fcc89e;
+}
+
+.menu_btn{
+  width: 50em;
+  text-align: center;
+}
+
+.name{
+  padding-left: 50px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #474c53;
 }

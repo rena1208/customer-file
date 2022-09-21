@@ -24,4 +24,9 @@ class Customer extends Model
     {
        return $this->belongsTo('App\Gender', 'gender_id');
     }
+
+    public function purchasedDate()
+    {
+        return $this->hasMany('App\PurchaseData','customer_id');
+    }
 }

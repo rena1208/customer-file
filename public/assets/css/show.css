@@ -52,6 +52,51 @@ dl {
     text-align: left;
   }
 
+  .btn_back{
+    width: 10rem;
+    background-color:#cbe7ff;
+    list-style: none;
+    font-family: "ヒラギノ丸ゴ Pro";
+    font-size: 1rem;
+    font-weight: 700;/*文字の太さ*/
+    line-height: 1.5;
+    display: inline-block;
+    margin-top: 0.5rem;/*ボタン隙間*/
+    margin-right: auto;
+    margin-left: 0.1rem;
+    padding:0.4rem 0.3rem;
+    cursor: pointer;/*カーソルを変える*/
+    vertical-align: top;/*上に揃える*/
+    color: #51565c;
+    border-radius: 0.5rem;/* 角を丸く */
+    border: 3px solid #83c5ff;
+    text-align: center;
+  }
+
+  .btn{
+    width: 10rem;
+  background-color:#ffedcb ;
+  list-style: none;
+  font-family: "ヒラギノ丸ゴ Pro";
+  font-size: 1rem;
+  font-weight: 700;/*文字の太さ*/
+  line-height: 1.5;
+  display: inline-block;
+  margin-top: 0.5rem;/*ボタン隙間*/
+  margin-right: auto;
+  margin-left: 0.1rem;
+  padding:0.4rem 0.3rem;
+  cursor: pointer;/*カーソルを変える*/
+  /* vertical-align: top;上に揃える */
+  color: #51565c;
+  border-radius: 0.5rem;/* 角を丸く */
+  border: 3px solid #fcc89e;
+  text-align: center;
+  }
+
+  
+
+
 
 
  

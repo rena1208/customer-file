@@ -3,7 +3,7 @@ body{
 }
 table{
     max-width: 95%;
-    width: 90%;
+    min-width: 80%;
     margin: 0 auto;
 }
 
@@ -20,6 +20,8 @@ tbody th, tbody td{
     border: 1.5px dashed #ffc3c3;
 }
 
+
+
 tbody th{
     background-color: #fdf2f2;
     border: 3px solid #ffc3c3;
@@ -29,23 +31,18 @@ tbody th{
     font-size: 15px;
 }
 
-.th-date{
-    width: 8.5rem;
+td.top{
+    background-color: #fdf2f2;
+    border: 3px solid #ffc3c3;
+    color: #83c5ff;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 15px;
+
 }
 
-.td-date{
-    padding: 5px;
-    vertical-align: top;
-}
-
-tbody td{
-    height: 3rem;
-}
-
-.pagilink{
-    padding-top: 20px;
-    padding-left: 45%;
-    display: block;
+th.top{
+    border: none;
 }
 
 .btn_back{
@@ -66,34 +63,60 @@ tbody td{
     color: #51565c;
     border-radius: 0.5rem;/* 角を丸く */
     border: 3px solid #83c5ff;
+    text-align: center;
 }
 
 .btn{
     width: 10rem;
-    background-color:#ffedcb ;
-    list-style: none;
-    font-family: "ヒラギノ丸ゴ Pro";
-    font-size: 1rem;
-    font-weight: 700;/*文字の太さ*/
-    line-height: 1.5;
-    display: inline-block;
-    margin-top: 0.5rem;/*ボタン隙間*/
-    margin-right: auto;
-    margin-left: 0.1rem;
-    padding:0.4rem 0.3rem;
-    cursor: pointer;/*カーソルを変える*/
-    /* vertical-align: top;上に揃える */
-    color: #51565c;
-    border-radius: 0.5rem;/* 角を丸く */
-    border: 3px solid #fcc89e;
+  background-color:#ffedcb ;
+  list-style: none;
+  font-family: "ヒラギノ丸ゴ Pro";
+  font-size: 1rem;
+  font-weight: 700;/*文字の太さ*/
+  line-height: 1.5;
+  display: inline-block;
+  margin-top: 0.5rem;/*ボタン隙間*/
+  margin-right: auto;
+  margin-left: 0.1rem;
+  padding:0.4rem 0.3rem;
+  cursor: pointer;/*カーソルを変える*/
+  /* vertical-align: top;上に揃える */
+  color: #51565c;
+  border-radius: 0.5rem;/* 角を丸く */
+  border: 3px solid #fcc89e;
+  text-align: center;
 }
 
 .menu_btn{
     text-align: center;
 }
 
+.year{
+    width: 5rem;
+    background-color: white;
+    list-style: none;
+    font-family: "ヒラギノ丸ゴ Pro";
+    font-size: 15px;
+    font-weight: 500;/*文字の太さ*/
+    line-height: 1;
+    display: inline-block;
+    margin-top: 0.5rem;/*ボタン隙間*/
+    margin-right: auto;
+    margin-left: 0.1rem;
+    padding:0.4rem 0.3rem;
+    cursor: pointer;/*カーソルを変える*/
+    color: #51565c;
+    border-radius: 0.5rem;/* 角を丸く */
+    border: 2.5px solid #cbe7ff;
+    text-align: center;
+}
+
+.pagilink{
+  text-align: center;
+}
+
 .title{
-    padding-left: 7%;
+    padding-left: 8%;
     color: #474c53;
     font-weight: 700;
     font-size: 15px;
