@@ -72,13 +72,13 @@ class PostItemController extends Controller
             $customer->repeater = true;
             $customer->save();
             }
-        return redirect()->route('item.create',['id'=>$purchaseData->customer_id]);
+        return redirect()->route('item.index',['id'=>$purchaseData->customer_id]);
     }
 
     public function purchasedindex($customerId) {
         $customer = Customer::find($customerId);
         // dd($customer);
-        $purchaseDatas =PurchaseData::where('customer_id', $customer->id)->with('purchasedItems')->with('purchasedItems.item')->orderBy('date','desc')->paginate(4);
+        $purchaseDatas =PurchaseData::where('customer_id', $customer->id)->with('purchasedItems')->with('purchasedItems.item')->orderBy('date','desc')->paginate(6);
         // dd($purchaseDatas);
         return view('customer/purchaseIndex',compact('purchaseDatas','customer'));
     }

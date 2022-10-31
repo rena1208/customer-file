@@ -92,8 +92,8 @@ return [
         ],
         
         'sqlite_testing' => [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
+            'driver' => 'mysql',
+            'database' => 'customer-file',
             'prefix' => '',
         ],
 
