@@ -1,6 +1,6 @@
 # 『化粧品顧客管理台帳』<br>接客内容を簡単に管理、店舗内で共有できるWEBアプリケーション
 
-<img width="1440" alt="スクリーンショット 2022-12-20 1 15 37" src="https://user-images.githubusercontent.com/72782628/208661839-b3fc762c-c1bf-4f33-b214-95cd0594b581.png">
+<img width="900" alt="スクリーンショット 2022-12-20 1 15 37" src="https://user-images.githubusercontent.com/72782628/208661839-b3fc762c-c1bf-4f33-b214-95cd0594b581.png">
 
 # 概要
 
