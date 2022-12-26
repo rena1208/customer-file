@@ -46,11 +46,16 @@
       ③お客様のプロフィール画面へ移動するので、お名前があっているか確認後、接客内容の登録へを選択    
       ④お客様が購入した商品を選択し、個数を入力、日付などの必要な項目を記入  
       　商品もメーカー、カテゴリーで絞り込みをするとスムーズに商品を選択できる  
-         
+       
+![画面収録 2022-12-27 0 57 36](https://user-images.githubusercontent.com/72782628/209567092-22885cc5-dba9-459b-81d0-c4769d57692c.gif)
          
 ## ●接客中の使用イメージ
 ①お客様の名前を選択  
 ②購入履歴を選択して以前購入した商品を確認したり、使用状況シートを選択して使用サイクルを確認する  
+
+<img width="1437" alt="スクリーンショット 2022-12-27 1 21 28" src="https://user-images.githubusercontent.com/72782628/209567367-6b841b0b-057b-4fa8-a743-0e2fbea7c3d9.png">
+
+<img width="1369" alt="スクリーンショット 2022-12-27 1 22 28" src="https://user-images.githubusercontent.com/72782628/209567399-e786f2d4-e8c8-4133-8801-d778dc694d0c.png">
 
 # 使用技術
 バックエンド... PHP / laravel  
@@ -64,6 +69,7 @@
 # DB設
 ## ●ER図
 
+<img width="1124" alt="スクリーンショット 2022-12-27 1 26 42" src="https://user-images.githubusercontent.com/72782628/209567626-3a4bd70b-ca92-4e3d-baf2-bed5da72d66a.png">
 
 ## ●各種テーブル
 <!-- users(ユーザー) ... 店舗登録情報<br>
