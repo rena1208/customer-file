@@ -62,7 +62,7 @@
 
 フロントエンド... JavaScript  
 
-インフラ...AWS(EC2,RDS)
+インフラ...AWS(EC2,RDS,Route 53)
 
 その他の使用技術...git(gitHub) / Visual Studio Code
 
