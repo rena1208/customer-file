@@ -1,78 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 『化粧品顧客管理台帳』<br>接客内容を簡単に管理、店舗内で共有できるWEBアプリケーション
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<img width="900" alt="スクリーンショット 2022-12-20 1 15 37" src="https://user-images.githubusercontent.com/72782628/208661839-b3fc762c-c1bf-4f33-b214-95cd0594b581.png">
 
-## About Laravel
+# 概要
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+化粧品を購入して頂いたお客様の個人情報の登録、接客内容と購入商品を店舗内で共有するWEBアプリケーション
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+① 現職で実際に使用している紙ベースの顧客管理台帳を、WEBアプリケーションにすることによる作業の簡略化
+② パソコンやスマートホンなどの操作が苦手な方でも簡単に使用できる仕様にすること<br>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+特にこの２点を特に意識して設計、コーディングを行いました。
 
-## Learning Laravel
+# 制作背景
+現在使用している顧客管理台帳の欠点として
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+① 顧客管理をする際に使用する索引用の用紙の書き換えに時間がかかる
+② 購入商品の記入の際記入する用紙が２種類あるためその記入に時間がかかる<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+など作業効率が良くない点がありました。  
+店舗での業務はさまざまな業務を並行して行うため、こうした非効率な部分は後の作業の進捗に支障が出てしまう時がありました。  
+そういった問題を解決できるものを作りたいと思い今回こちらのアプリケーションの開発を進めました。
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    **アプリURL**  
+    **サンプルユーザー** 札幌店  
+    **サンプルユーザーID** 001234  
+    **パスワード**　 sp001234  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+# 画面操作説明
+## ●お客様新規登録
+※ログイン後（ユーザー登録必須）  
+      ①ホーム画面からお客様追加を選択  
+      ②お客様自身に個人情報を入力していただき送信  
+      ③お客様プロフィールで入力内容を確認  
+      
+![画面収録 2022-12-25 13 44 17](https://user-images.githubusercontent.com/72782628/209492987-956e3459-af1c-43f1-89a3-ad2c0fe92bb4.gif)
 
-## Contributing
+      
+      
+## ●接客履歴の登録
+※ログイン後  
+      ①ホーム画面の購入履歴を選択  
+      ②接客をするお客様の名前を選択  
+        左の索引ボタンでお名前の頭文字を選択すると、一覧の絞り込みができる  
+      ③お客様のプロフィール画面へ移動するので、お名前があっているか確認後、接客内容の登録へを選択    
+      ④お客様が購入した商品を選択し、個数を入力、日付などの必要な項目を記入  
+      　商品もメーカー、カテゴリーで絞り込みをするとスムーズに商品を選択できる  
+       
+![画面収録 2022-12-27 0 57 36](https://user-images.githubusercontent.com/72782628/209567092-22885cc5-dba9-459b-81d0-c4769d57692c.gif)
+         
+## ●接客中の使用イメージ
+①お客様の名前を選択  
+②購入履歴を選択して以前購入した商品を確認したり、使用状況シートを選択して使用サイクルを確認する  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img width="1437" alt="スクリーンショット 2022-12-27 1 21 28" src="https://user-images.githubusercontent.com/72782628/209567367-6b841b0b-057b-4fa8-a743-0e2fbea7c3d9.png">
 
-## Code of Conduct
+<img width="1369" alt="スクリーンショット 2022-12-27 1 22 28" src="https://user-images.githubusercontent.com/72782628/209567399-e786f2d4-e8c8-4133-8801-d778dc694d0c.png">
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# 使用技術
+バックエンド... PHP / laravel  
 
-## Security Vulnerabilities
+フロントエンド... JavaScript  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+インフラ...AWS(EC2,RDS,Route 53)
 
-## License
+その他の使用技術...git(gitHub) / Visual Studio Code
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# DB設
+## ●ER図
+
+<img width="1124" alt="スクリーンショット 2022-12-27 1 26 42" src="https://user-images.githubusercontent.com/72782628/209567626-3a4bd70b-ca92-4e3d-baf2-bed5da72d66a.png">
+
+## ●各種テーブル
+<!-- users(ユーザー) ... 店舗登録情報<br>
+customers(カスタマー)... お客様登録情報<br>
+genders（ジェンダー）  ... 性別（お客様新規登録時に使用）<br>
+purchase_histories(パーチェスヒストリー) ... お客様の購入履歴<br>
+purchased_items(パーチェスアイテム) ...　　お客様の購入商品<br>
+
+manufacturers(マニュファクチャー) ... 商品のメーカー<br>
+items(アイテム)　... 商品名<br>
+categories(カテゴリー) ... 商品のカテゴリー<br>
+special_cares（スペシャルケア） ...　商品カテゴリーの中の美容液などのスペシャルケアの分類<br> -->
+|  テーブル名  |  説明  |
+| ---- | ---- |
+|  users(ユーザー)  |  店舗登録情報  |
+|  customers(カスタマー)  |  お客様登録情報  |
+| genders（ジェンダー） | 性別（お客様新規登録時に使用） |
+| purchase_histories(パーチェスヒストリー) | お客様の購入履歴 |
+| purchased_items(パーチェスアイテム) | お客様の購入商品 |
+| manufacturers(マニュファクチャー) | 商品のメーカー |
+| items(アイテム) | 商品名 |
+| categories(カテゴリー) | 商品のカテゴリー |
+| special_cares（スペシャルケア） | 商品カテゴリーの中の美容液などのスペシャルケアの分類 |
+# アプリ機能一覧
+## ●メイン機能
+◯ユーザー登録<br>
+◯お客様情報登録<br>
+◯お客様一覧の絞り込み機能<br>
+◯接客履歴の登録<br>
+◯接客履歴登録の際に使用する商品一覧の絞り込み機能<br>
+◯顧客情報に紐づく接客履歴の表示<br>
+◯接客履歴に紐づく使用状況シートの表示<br>
+
+# 最後に
+大変お忙しい中、最後までご覧いただき誠にありがとうございました。
+
+
+
+
+
+
+
+
+      
+

@@ -90,6 +90,12 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+        
+        'sqlite_testing' => [
+            'driver' => 'mysql',
+            'database' => 'customer-file',
+            'prefix' => '',
+        ],
 
     ],
 

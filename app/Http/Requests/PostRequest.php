@@ -34,7 +34,6 @@ class PostRequest extends FormRequest
         'purchased_item_id' => 'nullable',
         'item_id' => 'nullable',
         'quantity' => 'nullable',
-        'date'  => 'required',
         'comment' => 'nullable',
         'sampl' => 'nullable',
         'purchased_item_id' => 'nullable',

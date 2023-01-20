@@ -5,7 +5,7 @@
 <body>
     <div class="flex">
         <!-- テーブル商品 -->
-        <table id="item">
+        <table id="item" class="item">
                 <!-- テーブルヘッダー -->
                 <thead>
                     <th>商品一覧</th>
@@ -16,7 +16,7 @@
                     @foreach ($items as $item)
                         <tr>
                             <td>
-                                <div id=select_i onclick="selectItem( {{$item->id}},'{{$item->name}}' )">{{$item->name}}</div>
+                                <div class="select-i" id=select_i onclick="selectItem( {{$item->id}},'{{$item->name}}' )">{{$item->name}}</div>
                             </td>
                         </tr>
                     @endforeach
@@ -47,27 +47,36 @@
         <form action="{{ route('item.store', ['id'=>$customer->id]) }}" method="POST">
             @csrf
             {{ session('status') }}
+                @if ($customer->repeater===0)
+                    <div class="name">N- {{$customer->name}}　様</div>
+                @else
+                    <div class="name">R- {{$customer->name}}　様</div>
+                @endif
             <div class="box">
-                <div>
-                    <input type="hidden" name="customer_id" value="{{ $customer->id }}" />
-                    <label for="date"> <p>日付</p><input name="date" type="datetime"/></label>
-                </div>
-                <div>
-                    <p>購入商品</p><div id=post_item></dev>
-                    <!-- <label for="item_id"><input id=post_item_id name="item_id" type="integer"/></label> -->
-                    <!-- <p>個数</p> -->
-                    <!-- <label for="quantity"> <p>個数</p><input name="quantity" type="integer"/></label> -->
-                </div>
-                <div>
-                    <p>コメント</p>
-                    <label for="comment"><textarea name="comment"　type="text"></textarea></label>
-                </div>
-                <div>
-                    <label for="sample"> <p>サンプル</p><input name="sample" type="string"/></label>
-                </div>
+                <table>
+                    <tr>
+                        <input type="hidden" name="customer_id" value="{{ $customer->id }}" />
+                        <th class="box-item"><label for="date">日付</th><td class="box-content"><input name="date" type="datetime"/></label><td>
+                    </tr>
+                    <tr>
+                        <th class="box-item">購入商品</th><td id=post_item></td>
+                    </tr>
+                    <tr>
+                        <th class="box-item"><label for="comment">コメント</th><td><textarea class="comment-txt" name="comment"　type="text"></textarea></td></label>
+                    </tr>
+                    <tr>
+                        <th class="box-item"><label for="sample">サンプル</th><td><textarea class="sample-txt" name="sample" type="string"></textarea></td></label>
+                    </tr>
+                </table>
+                    <div class="add-button">
+                        <button>登録</button>
+                    </div>
             </div>
-            <button>登録</button>
-                
+            <div class="menu_btn">
+                <a href="{{ route('customer.index', ['id'=>$customer->id] )}}" class="btn_back">お客様一覧へ</a>
+                <a href="{{ route('item.index', ['id'=>$customer->id] )}}" class="btn">購入履歴へ</a>
+                <a href="{{ route('item.calender', ['id'=>$customer->id, 'year'=>\Carbon\Carbon::now()->year] )}}" class="btn">使用状況シート</a> 
+            </div>
         </form>
 
         <!-- バリデーションエラー表示  -->
@@ -127,8 +136,11 @@
                 //商品の数分追加する
                 const appendElement_m= 
                     `
-                        <div　id="select_i" onclick="selectItem('${result[i].id}','${result[i].name}')">${result[i].name}</div>
-                        
+                    <table>
+                        <tr>
+                            <div class="select-i" id="select_i" onclick="selectItem('${result[i].id}','${result[i].name}')">${result[i].name}</div>
+                        </tr>
+                    </table>   
                     `
                     // <div　id="select_i" onclick="selectItem('${result[i].id}','${result[i].name}')">${result[i].name}</div>  
                 //追加する
@@ -142,9 +154,21 @@
             const purchaseItem=document.getElementById("post_item");
             const appendElementItemName= 
                     `
-                        <div>${name}</div>
-                        <input type="hidden" name="ids[]" value="${id}"/>
-                        <input name="quantities[]" type="integer"/>個
+                    <div class="add-item">
+                        <dl>
+                            <dt>
+                                <p>${name}</p>
+                            </dt>
+                            <dd>
+                                <input type="hidden" name="ids[]" value="${id}"/>
+                            </dd>
+                        </dl>
+                        <dl>
+                             <dt>
+                                 <input name="quantities[]" type="integer"/> 個
+                             </dt>
+                        </dl>
+                    </div>
                     `
                     // <input type="hidden" name="item_id" value="${id}"/>
             // console.log(manufacturer_id,category_id);
