@@ -85,44 +85,11 @@ class CustomersTableSeeder extends Seeder
             [
                 "id" => 7,
                 "user_id" => 1,
-                "gender_id" => 1,
-                "name" => '札幌太郎',
-                "name_ruby" => 'さっぽろたろう',
-                "birthday" => '1977-11-25', 
-                "phone_number" => '0100-11-2500',
-                "address" => '北海道札幌市豊平区羊ケ丘１',
-                "repeater" => 0
-            ],
-            [
-                "id" => 8,
-                "user_id" => 1,
-                "gender_id" => 2,
-                "name" => '札幌花子',
-                "name_ruby" => 'さっぽろはなこ',
-                "birthday" => '2003-12-20', 
-                "phone_number" => '0100-12-2000',
-                "address" => '北海道札幌市豊平区羊ケ丘１',
-                "repeater" => 0
-            ],
-            [
-                "id" => 9,
-                "user_id" => 1,
                 "gender_id" => 2,
                 "name" => '栗花落カナヲ',
                 "name_ruby" => 'つゆりかなを',
                 "birthday" => '1992-2-3',
                 "phone_number" => '0100-90-2200',
-                "address" => '大阪府大阪市此花区北港緑地２丁目２−６５',
-                "repeater" => 0
-            ],
-            [
-                "id" =>  10,
-                "user_id" => 1,
-                "gender_id" => 1,
-                "name" => '北海道一郎',
-                "name_ruby" => 'ほっかいどういちろう',
-                "birthday" => '2001-7-14', 
-                "phone_number" => '0100-07-0014',
                 "address" => '大阪府大阪市此花区北港緑地２丁目２−６５',
                 "repeater" => 0
             ],
