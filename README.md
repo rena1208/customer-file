@@ -66,7 +66,7 @@
 
 インフラ...AWS(EC2,RDS,Route 53)
 
-その他の使用技術...git(GitHub) / Visual Studio Code
+その他の使用技術...git(GitHub) / Visual Studio Code / PHPUnit
 
 # DB設計
 ## ●ER図
