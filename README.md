@@ -60,7 +60,7 @@
 <img width="1369" alt="スクリーンショット 2022-12-27 1 22 28" src="https://user-images.githubusercontent.com/72782628/209567399-e786f2d4-e8c8-4133-8801-d778dc694d0c.png">
 
 # 使用技術
-バックエンド... PHP / laravel  
+バックエンド... PHP 7.4.30/ laravel 6.20.33 
 
 フロントエンド... JavaScript  
 
