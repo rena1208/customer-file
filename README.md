@@ -68,7 +68,7 @@
 
 データーベース...開発環境　MAMP / 本番環境　MySQL
 
-その他の使用技術...git(GitHub) / Visual Studio Code / PHPUnit
+その他の使用技術...git(GitHub) / Visual Studio Code
 
 # DB設計
 ## ●ER図
